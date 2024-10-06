@@ -14,6 +14,13 @@
 * добавить файл __.gitignore__
 * выполнить добавление проекта в __stage__ командой **git add .**
 * выполинть первый коммит **git commit -m'Описание коммита'**
+* создать удаленный репозиторий на github или gitlab или bitbuscket или ...
+* для github выполнить команды 
+ 
+  git remote add origin https://github.com/vlychagin/<имя_репозитория>.git
+  git remote add origin https://github.com/vlychagin/CW_PaidClinicSimpleEf.git
+  git branch -M master
+  git push -u origin master
 
 **Задача 1.** С использованием подхода Code First и паттерна MVC разработайте приложение ASP.NET Core для работы с однотабличной базой данных. Настройка сущности должна быть выполнена только с использованием Fluent API. 
 
