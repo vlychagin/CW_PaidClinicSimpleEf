@@ -1,0 +1,52 @@
+﻿@using PaidClinicSimpleEf.Models
+
+@model IEnumerable<Appointment>
+@{
+    ViewBag.Appointments = "active";
+    ViewBag.Title = "Врачебные приемы";
+}
+
+@* заголовок *@
+<div class="d-flex mx-auto">
+    <h4>@ViewBag.Title</h4> 
+    <a asp-controller="Appointments" asp-action="Create" 
+       class="ms-3 btn btn-outline-success">Добавить
+    </a>
+</div>
+
+<table class="table table-borderless w-75 mx-auto">
+    <tr>
+        <th>Id</th>
+        <th>Дата<br/>приема</th>
+        <th>Доктор, ФИО</th>
+        <th>Специальность</th>
+        <th>Пациент, ФИО</th>
+        <th>Возраст, лет</th>
+        <th>Стоимость<br/>приема, руб.</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.Id</td>
+            <td>@($"{item.Date:dd-MM-yyyy}")</td>
+            <td>@item.Doctor</td>
+            <td>@item.Speciality</td>
+            <td>@item.Patient</td>
+            <td>@item.Age</td>
+            <td>@($"{item.Price:n2}")</td>
+            <td>
+                <a asp-controller="Appointments" asp-action="Edit" asp-route-id="@item.Id"
+                   class="ms-3 btn btn-outline-warning"
+                   title="Редактировать">
+                    Р
+                </a>
+                <a asp-controller="Appointments" asp-action="Delete"
+                   class="ms-3 btn btn-outline-danger"
+                   title="Удалить">
+                    У
+                </a>
+            </td>
+        </tr>
+    }
+</table>
